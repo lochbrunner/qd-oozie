@@ -1,0 +1,17 @@
+{
+  "name": "qd-oozie",
+  "version": "1.0.0",
+  "description": "Quick & Dirty Oozie",
+  "main": "index.js",
+  "dependencies": {
+    "eslint": "^5.7.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "keywords": [
+    "Oozie"
+  ],
+  "author": "Matthias Lochbrunner",
+  "license": "MIT"
+}
