@@ -29,6 +29,7 @@ const loadAllJobs = () => {
 const launchProcess = (stageName, flowDefinition, flowState) => {
     const jobDefinition = flowDefinition.stages[stageName];
     const state = {
+        name: stageName,
         status: 'RUNNING',
         stdout: '',
         stderr: '',
@@ -75,6 +76,7 @@ const launchFlow = (flowName) => {
     const flowDefinition = flowDefinitions[flowName];
     const id = flowStates.length;
     const flowState = {
+        name: flowName,
         stages: [],
         id,
         running: 0,
