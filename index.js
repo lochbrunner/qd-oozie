@@ -13,7 +13,7 @@ const flowDefinitions = {};
 const flowStates = [];
 
 const loadAllJobs = () => {
-    const dir = './jobs'
+    const dir = './flows'
     fs.readdirSync(dir).forEach(file => {
         const filename = dir + '/' + file;
         if (fs.statSync(filename).isDirectory()) return;
@@ -104,7 +104,7 @@ app.post('/start', (req, res) => {
     }));
 });
 
-app.get('/job/:id', (req, res) => {
+app.get('/flow/:id', (req, res) => {
     const {
         id
     } = req.params;
@@ -112,14 +112,14 @@ app.get('/job/:id', (req, res) => {
     if (id >= flowStates.length) {
         res.status(404).send(
             JSON.stringify({
-                error: `No job with the id ${id} found!`
+                error: `No flow with the id ${id} found!`
             }));
         return;
     }
     res.send(JSON.stringify(flowStates[id]));
 });
 
-app.get('/jobs', (req, res) => {
+app.get('/flows', (req, res) => {
     const responseData = flowStates.map(j => ({
         id: j.id,
         status: j.status
