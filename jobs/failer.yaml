@@ -1,0 +1,16 @@
+name: "Failer"
+entrypoints:
+  - sleeper
+stages:
+  sleeper:
+    command: sleep
+    args:
+      - "2"
+    success: [lister]
+    fail: []
+  lister:
+    command: ls
+    args:
+      - "ereerer"
+    success: []
+    fail: []
