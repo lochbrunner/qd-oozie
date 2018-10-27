@@ -77,11 +77,47 @@ which should return
 
 when every job of the flow finished.
 
+### Templates
+
+**Quick & Dirty Oozie** uses [mustache](https://github.com/janl/mustache.js) in order to support templates.
+
+Flow:
+
+```yaml
+name: "WithArgs"
+entrypoints:
+  - echo
+stages:
+  echo:
+    command: echo
+    args:
+      - "Hello {{name}}!"
+    success: []
+    fail: []
+```
+
+The param `name` get resolved from the `params` object of the request:
+
+```http
+POST http://localhost:4000/start HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Simple",
+    "params": {
+        "name": "World"
+    }
+}
+```
+
+Will print `Hello World!` to the stdout.
+
+> Note: Some local tests showed that the params get sanitized and no words separation of the arguments take place. We do not guarantee that it will behave similarly on your system!
+
 ## Missing features
 
-* Schema checks of the flows and the submittings
+* Schema checks of the flows and the submits
 * Cycle detection
-* Templating (placing args from the submit into the flow) Not implemented due to security risks.
 
 ## Disclaimer
 

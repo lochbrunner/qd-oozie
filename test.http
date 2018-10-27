@@ -1,4 +1,4 @@
-GET http://localhost:4000/flow/0
+GET http://localhost:4000/flow/1
 
 
 
@@ -18,3 +18,30 @@ content-type: application/json
 
 
 GET http://localhost:4000/flows HTTP/1.1
+
+
+
+###
+
+POST http://localhost:4000/start HTTP/1.1
+content-type: application/json
+
+{
+    "name": "WithArgs",
+    "params": {
+        "name": "World"
+    }
+}
+
+###
+
+
+POST http://localhost:4000/start HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Echo",
+    "params": {
+        "arg": "hi;ls"
+    }
+}

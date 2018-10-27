@@ -1,0 +1,10 @@
+name: "WithArgs"
+entrypoints:
+  - echo
+stages:
+  echo:
+    command: echo
+    args:
+      - "Hello {{name}}!"
+    success: []
+    fail: []

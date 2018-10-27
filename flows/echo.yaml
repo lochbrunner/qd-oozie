@@ -1,0 +1,10 @@
+name: "Echo"
+entrypoints:
+  - echo
+stages:
+  echo:
+    command: echo
+    args:
+      - "{{arg}}"
+    success: []
+    fail: []
