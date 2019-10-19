@@ -1,6 +1,6 @@
 {
   "name": "qd-oozie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Quick & Dirty Oozie",
   "main": "dist/index.js",
   "dependencies": {
